@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="submitForm(form)" novalidate>
+  <div class="form-group">
+    <label class="col-md-4">First name</label>
+    <input type="text" class="form-control" formControlName="firstname" #firstname />
+  </div>
+  <div *ngIf="form.controls['firstname'].invalid && (form.controls['firstname'].dirty || form.controls['firstname'].touched)" class="alert alert-danger" [@enterAnimation]>
+    <div *ngIf="form.controls['firstname'].errors.required">
+      First name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4">Last name</label>
+    <input type="text" class="form-control" formControlName="lastname" #lastname />
+  </div>
+  <div *ngIf="form.controls['lastname'].invalid && (form.controls['lastname'].dirty || form.controls['lastname'].touched)" class="alert alert-danger" [@enterAnimation]>
+    <div *ngIf="form.controls['lastname'].errors.required">
+      Last name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4">E-mail</label>
+    <input type="text" class="form-control" formControlName="email" #email />
+  </div>
+  <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="alert alert-danger" [@enterAnimation]>
+    <div *ngIf="form.controls['email'].errors.required">
+      Email is required.
+    </div>
+    <div *ngIf="form.controls['email'].errors.email">
+      Invalid email.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4">Date of birth</label>
+    <input type="text" class="form-control" formControlName="birthday" #birthday />
+  </div>
+  <div *ngIf="form.controls['birthday'].invalid && (form.controls['birthday'].dirty || form.controls['birthday'].touched)" class="alert alert-danger" [@enterAnimation]>
+    <div *ngIf="form.controls['birthday'].errors.required">
+      Date of birth is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Update</button>
+  </div>
+</form>

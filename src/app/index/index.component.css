@@ -1,0 +1,7 @@
+.user-table tr td:last-child {
+    width: 200px;
+}
+
+.btn-add {
+    margin: 20px 0
+}
